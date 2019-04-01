@@ -23,14 +23,11 @@ class Spaceship {
 class Bullet {
     constructor() {}
     setup() {
-        this.imgBullet = loadImage('./images/laser_player.png'); //, fireBullet());
-        //this.x = battle.spaceship.x + 22;
-        //this.y = battle.spaceship.y - 12;
-        //this.bulletVelocity = 0;
+        this.img = loadImage('./images/laser_player.png');
+        this.x = battle.spaceship.x + 22;
+        this.y = battle.spaceship.y;
     }
     draw() {
-        image(this.imgBullet, this.x, this.y, this.imgBullet.width / 1.25, this.imgBullet.height / 1.25);
-        this.x = battle.spaceship.x + 22;
-        this.y = battle.spaceship.y - 12;
+        image(this.img, this.x, this.y, this.img.width / 1.25, this.img.height / 1.25);
     }
 }

@@ -1,15 +1,12 @@
 let pg;
 let backImage;
-let enemiesImages = [];
 let enemiesArray = [];
 let bulletsArray = [];
-let velocitySith;
 class Battle {
     constructor() {
         this.spaceship = new Spaceship();
         this.bullet = new Bullet();
         this.sith = new Sith();
-        //this.enemy = new Enemy();
     }
     setup() {
         createCanvas(BATTLE_WIDTH, BATTLE_HEIGHT);
@@ -30,8 +27,8 @@ class Battle {
 
     draw() {
         this.spaceship.draw();
-        this.bullet.draw();
         enemiesArray.forEach(enemy => enemy.draw());
         this.sith.draw();
+        this.bullet.draw();
     }
 }

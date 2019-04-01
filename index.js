@@ -13,9 +13,13 @@ function draw() {
     } else if (keyIsDown(RIGHT_ARROW)) {
         battle.spaceship.x += 10;
     }
+    //bulletsArray.forEach(bullet => bullet.draw());
 }
-//function fireBullet() {
-//   this.imgBullet = loadImage('./images/laser_player.png');
-//   this.x = battle.spaceship.x + 22;
-//  this.y = battle.spaceship.y - 12;
-//}
+
+function keyTyped() {
+    if ((key = 36)) {
+        this.bullet = new Bullet();
+        bulletsArray.push(this.bullet);
+        battle.bullet.y -= 12;
+    } else return false;
+}

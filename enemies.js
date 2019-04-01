@@ -10,6 +10,8 @@ class Enemy {
 
     draw() {
         image(this.img, this.x, this.y, this.img.width / 1.5, this.img.height / 1.5);
+        this.x = this.x + random(-1, 1);
+        //this.y = this.y + random(-1, 1);
     }
 }
 
