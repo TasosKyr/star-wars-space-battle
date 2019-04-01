@@ -8,25 +8,14 @@ function setup() {
 
 function draw() {
     battle.draw();
+    if (keyIsDown(LEFT_ARROW)) {
+        battle.spaceship.x -= 10;
+    } else if (keyIsDown(RIGHT_ARROW)) {
+        battle.spaceship.x += 10;
+    }
 }
 //function fireBullet() {
 //   this.imgBullet = loadImage('./images/laser_player.png');
 //   this.x = battle.spaceship.x + 22;
 //  this.y = battle.spaceship.y - 12;
 //}
-
-function keyPressed() {
-    if (keyCode === LEFT_ARROW) {
-        battle.spaceship.x -= 30;
-    } else if (keyCode === RIGHT_ARROW) {
-        battle.spaceship.x += 30;
-    } else if (keyCode === UP_ARROW) {
-        battle.spaceship.y -= 30;
-    } else if (keyCode === DOWN_ARROW) {
-        battle.spaceship.y += 30;
-    } else if (keyCode === BACKSPACE) {
-        battle.bullet.fireBullet;
-    } else {
-        return false;
-    }
-}
