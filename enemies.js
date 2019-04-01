@@ -10,8 +10,8 @@ class Enemy {
 
     draw() {
         image(this.img, this.x, this.y, this.img.width / 1.5, this.img.height / 1.5);
-        this.x = this.x + random(-1, 1);
-        //this.y = this.y + random(-1, 1);
+        this.x = this.x + random(-0.3, 0.3);
+        this.y = this.y + 0.05;
     }
 }
 
@@ -28,5 +28,6 @@ class Sith {
         if (this.x > BATTLE_WIDTH - 20) {
             this.x = -10;
         }
+        this.y = this.y + 0.05;
     }
 }
