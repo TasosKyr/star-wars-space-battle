@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    font-family: 'Poppins', sans-serif;
+    /* font-family: 'VT323', monospace;
+  background-color: black;
+  color: chartreuse; */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    padding: 20px calc((100vw - 960px) / 2);
+}
