@@ -13,13 +13,12 @@ function draw() {
     } else if (keyIsDown(RIGHT_ARROW)) {
         battle.spaceship.x += 10;
     }
-    //bulletsArray.forEach(bullet => bullet.draw());
 }
 
 function keyTyped() {
-    if ((key = 36)) {
-        this.bullet = new Bullet();
-        bulletsArray.push(this.bullet);
-        battle.bullet.y -= 12;
+    if ((key = 'BACKSPACE')) {
+        bullt = new Bullet(battle.spaceship.x + 22, battle.spaceship.y - 13);
+        bullt.setup();
+        bullets.push(bullt);
     } else return false;
 }

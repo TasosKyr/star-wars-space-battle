@@ -19,15 +19,3 @@ class Spaceship {
         }
     }
 }
-
-class Bullet {
-    constructor() {}
-    setup() {
-        this.img = loadImage('./images/laser_player.png');
-        this.x = battle.spaceship.x + 22;
-        this.y = battle.spaceship.y;
-    }
-    draw() {
-        image(this.img, this.x, this.y, this.img.width / 1.25, this.img.height / 1.25);
-    }
-}

@@ -1,11 +1,11 @@
 let pg;
 let backImage;
-let enemiesArray = [];
-let bulletsArray = [];
+let enemies = [];
+let bullets = [];
+let bullt;
 class Battle {
     constructor() {
         this.spaceship = new Spaceship();
-        this.bullet = new Bullet();
         this.sith = new Sith();
     }
     setup() {
@@ -15,20 +15,27 @@ class Battle {
         });
         frameRate(60);
         this.spaceship.setup();
-        this.bullet.setup();
+
         for (let i = 0; i < 8; i++) {
             for (let y = 0; y < 4; y++) {
-                enemiesArray.push(new Enemy(40 + 110 * i, 80 + 80 * y));
+                enemies.push(new Enemy(40 + 110 * i, 80 + 80 * y));
             }
         }
-        enemiesArray.forEach(enemy => enemy.setup());
+        enemies.forEach(enemy => enemy.setup());
         this.sith.setup();
     }
 
     draw() {
         this.spaceship.draw();
-        enemiesArray.forEach(enemy => enemy.draw());
+        enemies.forEach(enemy => enemy.draw());
+        bullets.forEach(el => el.draw());
         this.sith.draw();
-        this.bullet.draw();
+        for (let i = 0; i < bullets.length; i++) {
+            for (let j = 0; j < enemies.length; j++) {
+                if (bullets[i].hits(enemies[j])) {
+                    console.log('BOOM');
+                }
+            }
+        }
     }
 }
