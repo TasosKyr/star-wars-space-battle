@@ -12,6 +12,12 @@ class Enemy {
         image(this.img, this.x, this.y, this.img.width / 1.5, this.img.height / 1.5);
         this.x = this.x + random(-0.3, 0.3);
         this.y = this.y + 0.05;
+        this.enemySize = {
+            left: this.x,
+            right: this.x + this.img.width / 1.5,
+            top: this.y,
+            bottom: this.y + this.img.height / 1.5
+        };
     }
 }
 

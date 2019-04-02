@@ -9,7 +9,25 @@ class Bullet {
     draw() {
         image(this.img, this.x, this.y, this.img.width / 1.25, this.img.height / 1.25);
         this.y = this.y - 20;
+        this.bulletSize = {
+            left: this.x,
+            right: this.x + this.img.width / 1.25,
+            top: this.y,
+            bottom: this.y + this.img.height / 1.25
+        };
     }
+}
 
-    hits() {}
+class Explosion {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+    setup() {
+        let randomIm = Math.floor(Math.random() * 4);
+        this.img = loadImage('./images/explosion' + randomIm + '.png');
+    }
+    draw() {
+        image(this.img, this.x, this.y, this.img.width / 1.25, this.img.height / 1.25);
+    }
 }

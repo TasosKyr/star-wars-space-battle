@@ -3,11 +3,15 @@ let backImage;
 let enemies = [];
 let bullets = [];
 let bullt;
+let expl;
+let explosions = [];
+
 class Battle {
     constructor() {
         this.spaceship = new Spaceship();
         this.sith = new Sith();
     }
+
     setup() {
         createCanvas(BATTLE_WIDTH, BATTLE_HEIGHT);
         backImage = loadImage('./images/falconbackground.jpg', img => {
@@ -29,13 +33,24 @@ class Battle {
         this.spaceship.draw();
         enemies.forEach(enemy => enemy.draw());
         bullets.forEach(el => el.draw());
+        explosions.forEach(el => el.draw());
         this.sith.draw();
         for (let i = 0; i < bullets.length; i++) {
             for (let j = 0; j < enemies.length; j++) {
-                if (bullets[i].hits(enemies[j])) {
-                    console.log('BOOM');
+                if (bullets.length !== 0 && this.hits(bullets[i].bulletSize, enemies[j].enemySize)) {
+                    enemies.splice(j, 1);
+                    bullets.splice(i, 1);
+                    expl = new Explosion(enemies[j].x, enemies[j].y);
+                    expl.setup();
+                    explosions.push(expl);
+                    setTimeout(function() {
+                        explosions.splice(expl, 1);
+                    }, 300);
                 }
             }
         }
+    }
+    hits(a, b) {
+        return !(a.left > b.right || a.right < b.left || a.top > b.bottom || a.bottom < b.top);
     }
 }
