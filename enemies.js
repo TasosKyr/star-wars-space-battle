@@ -4,7 +4,7 @@ class Enemy {
         this.y = y;
     }
     setup() {
-        let randomIm = Math.floor(Math.random() * 6);
+        let randomIm = Math.floor(Math.random() * 7);
         this.img = loadImage('./images/enemy' + randomIm + '.png');
     }
 

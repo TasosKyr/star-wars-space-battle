@@ -38,14 +38,14 @@ class Battle {
         for (let i = 0; i < bullets.length; i++) {
             for (let j = 0; j < enemies.length; j++) {
                 if (bullets.length !== 0 && this.hits(bullets[i].bulletSize, enemies[j].enemySize)) {
-                    enemies.splice(j, 1);
                     bullets.splice(i, 1);
                     expl = new Explosion(enemies[j].x, enemies[j].y);
                     expl.setup();
                     explosions.push(expl);
+                    enemies.splice(j, 1);
                     setTimeout(function() {
                         explosions.splice(expl, 1);
-                    }, 300);
+                    }, 200);
                 }
             }
         }
