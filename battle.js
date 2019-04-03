@@ -5,6 +5,10 @@ let bullets = [];
 let bullt;
 let expl;
 let explosions = [];
+let enemySize = {};
+let sithSize = {};
+let bulletSize = {};
+let sithHealth = 2;
 
 class Battle {
     constructor() {
@@ -34,10 +38,19 @@ class Battle {
         enemies.forEach(enemy => enemy.draw());
         bullets.forEach(el => el.draw());
         explosions.forEach(el => el.draw());
-        this.sith.draw();
+        if (sithHealth > 0) {
+            this.sith.draw();
+        } else {
+            noLoop();
+        }
+
         for (let i = 0; i < bullets.length; i++) {
             for (let j = 0; j < enemies.length; j++) {
-                if (bullets.length !== 0 && this.hits(bullets[i].bulletSize, enemies[j].enemySize)) {
+                if (
+                    bullets.length !== 0 &&
+                    bullets[i] &&
+                    this.hits(bullets[i].bulletSize, enemies[j].enemySize)
+                ) {
                     bullets.splice(i, 1);
                     expl = new Explosion(enemies[j].x, enemies[j].y);
                     expl.setup();
@@ -49,7 +62,18 @@ class Battle {
                 }
             }
         }
+
+        for (let i = 0; i < bullets.length; i++) {
+            if (
+                bullets.length !== 0 &&
+                bullets[i] &&
+                this.hits(bullets[i].bulletSize, this.sith.sithSize)
+            ) {
+                sithHealth -= 1;
+            }
+        }
     }
+
     hits(a, b) {
         return !(a.left > b.right || a.right < b.left || a.top > b.bottom || a.bottom < b.top);
     }

@@ -35,5 +35,11 @@ class Sith {
             this.x = -10;
         }
         this.y = this.y + 0.05;
+        this.sithSize = {
+            left: this.x,
+            right: this.x + this.img.width / 1.5,
+            top: this.y,
+            bottom: this.y + this.img.height / 1.5
+        };
     }
 }
