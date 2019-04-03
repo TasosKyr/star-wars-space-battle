@@ -1,5 +1,5 @@
 const battle = new Battle();
-let BATTLE_WIDTH = 800;
+let BATTLE_WIDTH = 750;
 let BATTLE_HEIGHT = 680;
 
 function setup() {
@@ -39,3 +39,11 @@ function fireBullet() {
         loop();
     }, rand);
 })();
+
+function gameOver() {
+    if (spaceshipHealth > 0) {
+        return false;
+    } else {
+        return true;
+    }
+}

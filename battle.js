@@ -14,6 +14,7 @@ let sithBullt;
 let sithBullets = [];
 let spaceshipHealth = 5;
 let spaceshipSize = {};
+let score = 0;
 
 class Battle {
     constructor() {
@@ -23,9 +24,15 @@ class Battle {
 
     setup() {
         createCanvas(BATTLE_WIDTH, BATTLE_HEIGHT);
-        backImage = loadImage('./images/falconbackground.jpg', img => {
-            image(img, 0, 0);
-        });
+        if (gameOver() == false) {
+            backImage = loadImage('./images/falconbackground.jpg', img => {
+                image(img, 0, 0);
+            });
+        } else {
+            backImage = loadImage('./images/gameover0.jpg', img => {
+                image(img, 0, 0);
+            });
+        }
         frameRate(60);
         this.spaceship.setup();
 
@@ -65,6 +72,8 @@ class Battle {
                     setTimeout(function() {
                         explosions.splice(expl, 1);
                     }, 200);
+                    score += 100;
+                    console.log(score);
                 }
             }
         }
@@ -77,7 +86,9 @@ class Battle {
             ) {
                 bullets.splice(i, 1);
                 sithHealth--;
+                score += 200;
                 console.log(sithHealth);
+                console.log(score);
             }
         }
         /* if (spaceshipHealth > 0) {
