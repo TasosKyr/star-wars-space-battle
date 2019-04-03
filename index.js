@@ -22,3 +22,20 @@ function keyTyped() {
         bullets.push(bullt);
     } else return false;
 }
+
+function fireBullet() {
+    sithBullt = new SithBullet(
+        battle.sith.x + battle.sith.img.width / 2,
+        battle.sith.y + battle.sith.img.height / 2
+    );
+    sithBullt.setup();
+    sithBullets.push(sithBullt);
+}
+
+(function loop() {
+    var rand = Math.round(Math.random() * (2000 - 500)) + 1000;
+    setTimeout(function() {
+        fireBullet();
+        loop();
+    }, rand);
+})();

@@ -9,6 +9,8 @@ let enemySize = {};
 let sithSize = {};
 let bulletSize = {};
 let sithHealth = 2;
+let sithBullt;
+let sithBullets = [];
 
 class Battle {
     constructor() {
@@ -37,6 +39,7 @@ class Battle {
         this.spaceship.draw();
         enemies.forEach(enemy => enemy.draw());
         bullets.forEach(el => el.draw());
+        sithBullets.forEach(el => el.draw());
         explosions.forEach(el => el.draw());
         if (sithHealth > 0) {
             this.sith.draw();
@@ -69,7 +72,9 @@ class Battle {
                 bullets[i] &&
                 this.hits(bullets[i].bulletSize, this.sith.sithSize)
             ) {
-                sithHealth -= 1;
+                bullets.splice(i, 1);
+                sithHealth--;
+                console.log(sithHealth);
             }
         }
     }

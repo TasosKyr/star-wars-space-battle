@@ -18,6 +18,26 @@ class Bullet {
     }
 }
 
+class SithBullet {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+    setup() {
+        this.img = loadImage('./images/laser_enemy.png');
+    }
+    draw() {
+        image(this.img, this.x, this.y, this.img.width / 1.25, this.img.height / 1.25);
+        this.y = this.y + 10;
+        this.bulletSize = {
+            left: this.x,
+            right: this.x + this.img.width / 1.25,
+            top: this.y,
+            bottom: this.y + this.img.height / 1.25
+        };
+    }
+}
+
 class Explosion {
     constructor(x, y) {
         this.x = x;
