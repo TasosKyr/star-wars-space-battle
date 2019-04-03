@@ -8,9 +8,12 @@ let explosions = [];
 let enemySize = {};
 let sithSize = {};
 let bulletSize = {};
+let sithBulletSize = {};
 let sithHealth = 2;
 let sithBullt;
 let sithBullets = [];
+let spaceshipHealth = 5;
+let spaceshipSize = {};
 
 class Battle {
     constructor() {
@@ -75,6 +78,29 @@ class Battle {
                 bullets.splice(i, 1);
                 sithHealth--;
                 console.log(sithHealth);
+            }
+        }
+        /* if (spaceshipHealth > 0) {
+            battle.spaceship.draw();
+        }  else {
+            gameOver();
+        } */
+
+        for (let i = 0; i < sithBullets.length; i++) {
+            if (
+                sithBullets.length !== 0 &&
+                sithBullets[i] &&
+                this.hits(sithBullets[i].sithBulletSize, battle.spaceship.spaceshipSize)
+            ) {
+                sithBullets.splice(i, 1);
+                spaceshipHealth--;
+                console.log(spaceshipHealth);
+                expl = new Explosion(battle.spaceship.x, battle.spaceship.y);
+                expl.setup();
+                explosions.push(expl);
+                setTimeout(function() {
+                    explosions.splice(expl, 1);
+                }, 200);
             }
         }
     }

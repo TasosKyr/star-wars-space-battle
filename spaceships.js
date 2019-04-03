@@ -17,5 +17,12 @@ class Spaceship {
         if (this.y <= BATTLE_HEIGHT) {
             this.y = BATTLE_HEIGHT - 69;
         }
+
+        this.spaceshipSize = {
+            left: this.x,
+            right: this.x + this.img.width / 1.5,
+            top: this.y,
+            bottom: this.y + this.img.height / 1.5
+        };
     }
 }
