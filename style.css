@@ -7,20 +7,41 @@
 html,
 body {
     font-family: 'Poppins', sans-serif;
-    /* font-family: 'VT323', monospace;
-  background-color: black;
-  color: chartreuse; */
 }
 
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url('./images/stsci-h-p1842a-f-4072x4133.png');
+    background-image: url('./images/darthvaderbackground.jpg');
     background-position: center;
     background-size: cover;
 }
 
 .container {
-    padding: 20px calc((100vw - 960px) / 2);
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+    justify-content: space-between;
+}
+
+#sketch-holder {
+    display: flex;
+    flex-direction: row;
+    width: 50vw;
+    height: 80vh;
+    padding: 3vh 0 5vw 4vw;
+}
+
+.score-counter {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    margin-top: 20vh;
+    margin-right: 10vw;
+    /* background-color: whitesmoke; */
+    background-image: url('./images/deathstarbackground.jpg') */
+    height: 300px;
+    width: 400px;
 }

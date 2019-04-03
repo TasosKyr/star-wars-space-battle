@@ -12,7 +12,7 @@ let sithBulletSize = {};
 let sithHealth = 2;
 let sithBullt;
 let sithBullets = [];
-let spaceshipHealth = 5;
+let spaceshipHealth = 2;
 let spaceshipSize = {};
 let score = 0;
 
@@ -23,16 +23,11 @@ class Battle {
     }
 
     setup() {
-        createCanvas(BATTLE_WIDTH, BATTLE_HEIGHT);
-        if (gameOver() == false) {
-            backImage = loadImage('./images/falconbackground.jpg', img => {
-                image(img, 0, 0);
-            });
-        } else {
-            backImage = loadImage('./images/gameover0.jpg', img => {
-                image(img, 0, 0);
-            });
-        }
+        let canvas = createCanvas(BATTLE_WIDTH, BATTLE_HEIGHT);
+        canvas.parent('sketch-holder');
+        backImage = loadImage('./images/falconbackground.jpg', img => {
+            image(img, 0, 0);
+        });
         frameRate(60);
         this.spaceship.setup();
 
@@ -91,11 +86,6 @@ class Battle {
                 console.log(score);
             }
         }
-        /* if (spaceshipHealth > 0) {
-            battle.spaceship.draw();
-        }  else {
-            gameOver();
-        } */
 
         for (let i = 0; i < sithBullets.length; i++) {
             if (
@@ -113,6 +103,17 @@ class Battle {
                     explosions.splice(expl, 1);
                 }, 200);
             }
+        }
+
+        if (spaceshipHealth < 1) {
+            gameOver();
+        }
+        function gameOver() {
+            clear();
+            backImage = loadImage('./images/gameOver.jpg', img => {
+                image(img, 0, 0);
+            });
+            noLoop();
         }
     }
 

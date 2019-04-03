@@ -40,10 +40,6 @@ function fireBullet() {
     }, rand);
 })();
 
-function gameOver() {
-    if (spaceshipHealth > 0) {
-        return false;
-    } else {
-        return true;
-    }
+function displayScore() {
+    document.querySelector('h1').innerHTML = `Score: ${this.score}`;
 }
