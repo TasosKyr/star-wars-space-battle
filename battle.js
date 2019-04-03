@@ -108,10 +108,13 @@ class Battle {
         if (spaceshipHealth < 1) {
             gameOver();
         }
+        if (sithHealth < 1) {
+            gameOver();
+        }
         function gameOver() {
             clear();
             backImage = loadImage('./images/gameOver.jpg', img => {
-                image(img, 0, 0);
+                image(img, 70, 120);
             });
             noLoop();
         }

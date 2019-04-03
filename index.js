@@ -40,6 +40,8 @@ function fireBullet() {
     }, rand);
 })();
 
-function displayScore() {
+/* function displayScore() {
     document.querySelector('score-counter').innerHTML = `YOUR SCORE: ${this.score}`;
 }
+
+console.log(displayScore()); */
