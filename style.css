@@ -35,13 +35,16 @@ body {
 }
 
 .score-counter {
+    color: bisque;
     display: flex;
     flex-direction: row;
     align-self: center;
-    margin-top: 20vh;
+    margin-top: 35vh;
     margin-right: 10vw;
     /* background-color: whitesmoke; */
-    background-image: url('./images/deathstarbackground.jpg') */
-    height: 300px;
-    width: 400px;
+    background-image: url('./images/deathstarbackground.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 30%;
+    height: 35%;
 }

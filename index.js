@@ -41,5 +41,5 @@ function fireBullet() {
 })();
 
 function displayScore() {
-    document.querySelector('h1').innerHTML = `Score: ${this.score}`;
+    document.querySelector('score-counter').innerHTML = `YOUR SCORE: ${this.score}`;
 }
