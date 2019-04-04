@@ -33,7 +33,7 @@ class Battle {
 
         for (let i = 0; i < 8; i++) {
             for (let y = 0; y < 4; y++) {
-                enemies.push(new Enemy(40 + 110 * i, 80 + 80 * y));
+                enemies.push(new Enemy(10 + 110 * i, 80 + 80 * y));
             }
         }
         enemies.forEach(enemy => enemy.setup());
@@ -68,6 +68,7 @@ class Battle {
                         explosions.splice(expl, 1);
                     }, 200);
                     score += 100;
+                    displayScore(score);
                     console.log(score);
                 }
             }

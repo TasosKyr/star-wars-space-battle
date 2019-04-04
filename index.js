@@ -40,8 +40,16 @@ function fireBullet() {
     }, rand);
 })();
 
-/* function displayScore() {
-    document.querySelector('score-counter').innerHTML = `YOUR SCORE: ${this.score}`;
+const quotes = [
+    'Great shot kid, that was one in a million!',
+    'Your focus determines your reality.',
+    'Do. Or do not. There is no try.',
+    'Never tell me the odds!',
+    'Great, kid. Don’t get cocky.'
+];
+function displayScore(score) {
+    let randQ = Math.floor(Math.random() * 5);
+    document.querySelector('.your-score').innerText = `${score}  -  ${quotes[randQ]}`;
 }
 
-console.log(displayScore()); */
+console.log(displayScore());
