@@ -113,10 +113,9 @@ class Battle {
         }
         function gameOver() {
             clear();
-            backImage = loadImage('./images/gameOver.jpg', img => {
-                image(img, 70, 120);
-            });
-            noLoop();
+            document.querySelector('.game-container').classList.add('non-active');
+            document.querySelector('.game-over-container').classList.remove('non-active');
+            /*  noLoop(); */
         }
     }
 
