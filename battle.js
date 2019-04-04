@@ -40,7 +40,8 @@ class Battle {
         this.sith.setup();
     }
 
-    restart() {
+    restart(type) {
+        console.log('restart');
         enemies = [];
         bullets = [];
         explosions = [];
@@ -55,7 +56,7 @@ class Battle {
         spaceshipSize = {};
         score = 0;
 
-        this.spaceship.setup();
+        this.spaceship.setup(type);
         this.sith.setup();
 
         for (let i = 0; i < 7; i++) {
@@ -74,8 +75,6 @@ class Battle {
         explosions.forEach(el => el.draw());
         if (sithHealth > 0) {
             this.sith.draw();
-        } else {
-            noLoop();
         }
 
         for (let i = 0; i < bullets.length; i++) {

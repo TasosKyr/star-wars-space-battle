@@ -1,7 +1,7 @@
 class Spaceship {
     constructor() {}
-    setup() {
-        this.img = loadImage('./images/milFalcon.png');
+    setup(type) {
+        this.img = loadImage(`./images/${type ? type : 'milFalcon'}.png`);
         this.x = BATTLE_WIDTH / 2;
         this.y = BATTLE_HEIGHT - 80;
     }

@@ -4,8 +4,9 @@ let BATTLE_HEIGHT = 680;
 
 document.querySelectorAll('.start-game-btn').forEach(el => {
     el.addEventListener('click', function() {
+        const type = el.classList[el.classList.length - 1];
         startGame();
-        battle.restart();
+        battle.restart(type);
         displayScore(score);
     });
 });
@@ -13,8 +14,10 @@ document.querySelectorAll('.start-game-btn').forEach(el => {
 window.onload = function() {
     document.querySelectorAll('.restart-game-btn').forEach(el => {
         el.addEventListener('click', function() {
+            const type = el.classList[el.classList.length - 1];
+            console.log(type);
             restartGame();
-            battle.restart();
+            battle.restart(type);
             displayScore(score);
         });
     });
