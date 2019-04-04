@@ -60,5 +60,3 @@ function displayScore(score) {
     let randQ = Math.floor(Math.random() * 5);
     document.querySelector('.your-score').innerText = `${score} - ${quotes[randQ]}`;
 }
-
-console.log(displayScore());

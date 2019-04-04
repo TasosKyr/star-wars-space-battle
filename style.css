@@ -16,23 +16,38 @@ body {
 }
 
 .start-container {
-    display: flex;
-    flex-direction: column;
-    align-content: space-between;
     width: 100vw;
     height: 100vh;
-    background-image: url('./images/starwarscompbackground.jpg');
-    /* padding-top: 3vh; */
+    background-image: url('./images/darthvaderbackground.jpg');
+    padding-top: 5vh;
 }
 
 .start-images {
-    display: block;
-    margin: 2vh auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+}
+
+.choose-hero {
+    justify-content: center;
+    align-items: center;
+    margin-top: 17vh;
+}
+.choose-hero img {
+    width: 20%;
+    height: auto;
 }
 
 .player-selection {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 9vh;
+    margin-left: 7vw;
 }
 .player-selection img {
     width: 70%;
