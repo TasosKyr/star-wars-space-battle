@@ -18,6 +18,16 @@ body {
     background-size: cover;
 }
 
+.start-container {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+}
+
+.active {
+    visibility: visible;
+}
 .game-container {
     display: flex;
     flex-direction: row;
@@ -47,6 +57,7 @@ body {
     height: 35%;
     font-family: 'ZCOOL XiaoWei', serif;
     color: white;
+    text-align: center;
     font-size: 3.5em;
 }
 

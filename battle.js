@@ -31,7 +31,7 @@ class Battle {
         frameRate(60);
         this.spaceship.setup();
 
-        for (let i = 0; i < 8; i++) {
+        for (let i = 0; i < 7; i++) {
             for (let y = 0; y < 4; y++) {
                 enemies.push(new Enemy(10 + 110 * i, 80 + 80 * y));
             }
@@ -83,8 +83,7 @@ class Battle {
                 bullets.splice(i, 1);
                 sithHealth--;
                 score += 200;
-                console.log(sithHealth);
-                console.log(score);
+                displayScore(score);
             }
         }
 
