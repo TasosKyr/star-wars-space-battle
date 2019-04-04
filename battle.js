@@ -12,7 +12,7 @@ let sithBulletSize = {};
 let sithHealth = 2;
 let sithBullt;
 let sithBullets = [];
-let spaceshipHealth = 2;
+let spaceshipHealth = 5;
 let spaceshipSize = {};
 let score = 0;
 
@@ -38,6 +38,32 @@ class Battle {
         }
         enemies.forEach(enemy => enemy.setup());
         this.sith.setup();
+    }
+
+    restart() {
+        enemies = [];
+        bullets = [];
+        explosions = [];
+        enemySize = {};
+        sithSize = {};
+        bulletSize = {};
+        sithBulletSize = {};
+        sithHealth = 2;
+        sithBullt;
+        sithBullets = [];
+        spaceshipHealth = 2;
+        spaceshipSize = {};
+        score = 0;
+
+        this.spaceship.setup();
+        this.sith.setup();
+
+        for (let i = 0; i < 7; i++) {
+            for (let y = 0; y < 4; y++) {
+                enemies.push(new Enemy(10 + 110 * i, 80 + 80 * y));
+            }
+        }
+        enemies.forEach(enemy => enemy.setup());
     }
 
     draw() {
@@ -81,6 +107,12 @@ class Battle {
                 this.hits(bullets[i].bulletSize, this.sith.sithSize)
             ) {
                 bullets.splice(i, 1);
+                expl = new Explosion(battle.sith.x, battle.sith.y);
+                expl.setup();
+                explosions.push(expl);
+                setTimeout(function() {
+                    explosions.splice(expl, 1);
+                }, 200);
                 sithHealth--;
                 score += 200;
                 displayScore(score);
@@ -112,10 +144,9 @@ class Battle {
             gameOver();
         }
         function gameOver() {
-            clear();
+            /* clear(); */
             document.querySelector('.game-container').classList.add('non-active');
             document.querySelector('.game-over-container').classList.remove('non-active');
-            /*  noLoop(); */
         }
     }
 

@@ -44,7 +44,7 @@ class Explosion {
         this.y = y;
     }
     setup() {
-        let randomIm = Math.floor(Math.random() * 3);
+        let randomIm = Math.floor(Math.random() * 2);
         this.img = loadImage('./images/explosion' + randomIm + '.png');
     }
     draw() {

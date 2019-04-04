@@ -2,12 +2,31 @@ const battle = new Battle();
 let BATTLE_WIDTH = 750;
 let BATTLE_HEIGHT = 680;
 
-document.querySelector('.start-game-btn').addEventListener('click', function() {
-    startGame();
+document.querySelectorAll('.start-game-btn').forEach(el => {
+    el.addEventListener('click', function() {
+        startGame();
+        battle.restart();
+        displayScore(score);
+    });
 });
+
+window.onload = function() {
+    document.querySelectorAll('.restart-game-btn').forEach(el => {
+        el.addEventListener('click', function() {
+            restartGame();
+            battle.restart();
+            displayScore(score);
+        });
+    });
+};
 
 function startGame() {
     document.querySelector('.start-container').classList.add('non-active');
+    document.querySelector('.game-container').classList.remove('non-active');
+}
+
+function restartGame() {
+    document.querySelector('.game-over-container').classList.add('non-active');
     document.querySelector('.game-container').classList.remove('non-active');
 }
 
@@ -17,6 +36,7 @@ function setup() {
 
 function draw() {
     battle.draw();
+
     if (keyIsDown(LEFT_ARROW)) {
         battle.spaceship.x -= 10;
     } else if (keyIsDown(RIGHT_ARROW)) {
@@ -42,7 +62,7 @@ function fireBullet() {
 }
 
 (function loop() {
-    var rand = Math.round(Math.random() * (2000 - 500)) + 1000;
+    var rand = Math.round(Math.random() * (1500 - 500)) + 1000;
     setTimeout(function() {
         fireBullet();
         loop();

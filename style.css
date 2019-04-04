@@ -52,12 +52,9 @@ body {
 }
 
 .players {
-    margin: 0 8vw;
+    margin: 0 8vw 0 0;
 }
 
-.active {
-    visibility: visible;
-}
 .non-active {
     display: none !important;
 }
@@ -106,9 +103,6 @@ body {
 
 .your-score {
     display: flex;
-}
-
-.start-game-btn {
 }
 
 .game-over-container {
