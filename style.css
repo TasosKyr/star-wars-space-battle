@@ -116,8 +116,17 @@ body {
     background-size: cover;
 }
 
-.choose-hero-over {
+.game-over-kid {
     margin-top: 55vh;
+}
+
+.game-over-kid img {
+    width: 75%;
+    height: auto;
+}
+
+.choose-hero-over {
+    margin-top: 1vh;
 }
 
 .choose-hero-over img {

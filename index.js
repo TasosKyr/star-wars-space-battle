@@ -2,6 +2,11 @@ const battle = new Battle();
 let BATTLE_WIDTH = 750;
 let BATTLE_HEIGHT = 680;
 
+function preload() {
+    soundFormats('mp3', 'ogg');
+    mySound = loadSound('./audio/Darthvader.mp3');
+    mySoundBullet = loadSound('./audio/TIE-Fire.wav');
+}
 document.querySelectorAll('.start-game-btn').forEach(el => {
     el.addEventListener('click', function() {
         const type = el.classList[el.classList.length - 1];
@@ -32,18 +37,19 @@ function restartGame() {
     document.querySelector('.game-over-container').classList.add('non-active');
     document.querySelector('.game-container').classList.remove('non-active');
 }
-
 function setup() {
     battle.setup();
+    mySound.setVolume(0.8);
+    mySound.loop();
 }
 
 function draw() {
     battle.draw();
 
     if (keyIsDown(LEFT_ARROW)) {
-        battle.spaceship.x -= 10;
+        battle.spaceship.x -= 3;
     } else if (keyIsDown(RIGHT_ARROW)) {
-        battle.spaceship.x += 10;
+        battle.spaceship.x += 3;
     }
 }
 
@@ -52,6 +58,7 @@ function keyTyped() {
         bullt = new Bullet(battle.spaceship.x + 22, battle.spaceship.y - 13);
         bullt.setup();
         bullets.push(bullt);
+        mySoundBullet.play();
     } else return false;
 }
 
@@ -65,7 +72,7 @@ function fireBullet() {
 }
 
 (function loop() {
-    var rand = Math.round(Math.random() * (1500 - 500)) + 1000;
+    var rand = Math.round(Math.random() * (900 - 400)) + 1000;
     setTimeout(function() {
         fireBullet();
         loop();

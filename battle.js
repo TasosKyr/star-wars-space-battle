@@ -29,6 +29,7 @@ class Battle {
             image(img, 0, 0);
         });
         frameRate(60);
+
         this.spaceship.setup();
 
         for (let i = 0; i < 7; i++) {
@@ -49,10 +50,10 @@ class Battle {
         sithSize = {};
         bulletSize = {};
         sithBulletSize = {};
-        sithHealth = 2;
+        sithHealth = 10;
         sithBullt;
         sithBullets = [];
-        spaceshipHealth = 2;
+        spaceshipHealth = 4;
         spaceshipSize = {};
         score = 0;
 
