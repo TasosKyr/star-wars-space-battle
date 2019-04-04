@@ -11,8 +11,23 @@
         <link href="https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei" rel="stylesheet" />
     </head>
     <body>
-        <div class="start-container active"></div>
-        <div class="game-container">
+        <div class="start-container active">
+            <div class="start-images">
+                <img src="./images/spacevader.png" alt="Space Vader logo" class="src" />
+            </div>
+            <div class="start-images player-selection">
+                <div class="players"><img src="./images/player0.png" alt="Yoda" class="src" /></div>
+                <div class="players"><img src="./images/player1.png" alt="Chewbacca" class="src" /></div>
+            </div>
+            <div class="start-images start-game-btn">
+                <img
+                    src="./images/insert-coin-4k-arcade-game-footage-101036195_iconm.jpeg"
+                    alt="Incert Your Coin"
+                    class="src"
+                />
+            </div>
+        </div>
+        <div class="game-container non-active">
             <div id="sketch-holder">
                 <script src="./spaceships.js"></script>
                 <script src="./battle.js"></script>
