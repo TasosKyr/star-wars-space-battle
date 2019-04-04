@@ -2,6 +2,15 @@ const battle = new Battle();
 let BATTLE_WIDTH = 750;
 let BATTLE_HEIGHT = 680;
 
+document.querySelector('.start-game-btn').addEventListener('click', function() {
+    startGame();
+});
+
+function startGame() {
+    document.querySelector('.start-container').classList.add('non-active');
+    document.querySelector('.game-container').classList.remove('non-active');
+}
+
 function setup() {
     battle.setup();
 }

@@ -33,9 +33,10 @@ body {
 .player-selection {
     display: flex;
     flex-direction: row;
-    align-content: space-around;
-    /*  width: 80%;
-    height: 80%; */
+}
+.player-selection img {
+    width: 70%;
+    height: auto;
 }
 
 .players {
@@ -93,4 +94,7 @@ body {
 
 .your-score {
     display: flex;
+}
+
+.start-game-btn {
 }
