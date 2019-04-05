@@ -11,7 +11,7 @@ let bulletSize = {};
 let sithBulletSize = {};
 let sithBullt;
 let sithBullets = [];
-let spaceshipHealth = 5;
+let spaceshipHealth = 10;
 let spaceshipSize = {};
 let score = 0;
 
@@ -52,7 +52,7 @@ class Battle {
         this.sith.health = 3;
         sithBullt;
         sithBullets = [];
-        spaceshipHealth = 40;
+        spaceshipHealth = 10;
         spaceshipSize = {};
         score = 0;
         loop();
@@ -160,8 +160,8 @@ class Battle {
             ) {
                 gameOver();
             }
-        }); */
-        /* if (
+        });
+        if (
             this.sith.y > BATTLE_HEIGHT - this.sith.img.height / 1.5 ||
             this.hits(this.sith.sithSize, battle.spaceship.spaceshipSize)
         ) {

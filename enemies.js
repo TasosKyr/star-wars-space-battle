@@ -31,7 +31,7 @@ class Sith {
         this.img = loadImage('./images/sith2.png');
         this.x = BATTLE_WIDTH / 2;
         this.y = 5;
-        this.health = 3;
+        this.health = 10;
     }
     draw() {
         if (this.img) {
