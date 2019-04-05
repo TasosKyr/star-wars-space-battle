@@ -29,9 +29,8 @@ class Battle {
             image(img, 0, 0);
         });
         frameRate(60);
-
         this.spaceship.setup();
-
+        //Enemies setup and positioning to the screen after start
         for (let i = 0; i < 7; i++) {
             for (let y = 0; y < 4; y++) {
                 enemies.push(new Enemy(10 + 110 * i, 80 + 80 * y));
@@ -59,7 +58,7 @@ class Battle {
 
         this.spaceship.setup(type);
         this.sith.setup();
-
+        //Enemies setup and positioning to the screen after restart
         for (let i = 0; i < 7; i++) {
             for (let y = 0; y < 4; y++) {
                 enemies.push(new Enemy(10 + 110 * i, 80 + 80 * y));
@@ -77,7 +76,7 @@ class Battle {
         if (sithHealth > 0) {
             this.sith.draw();
         }
-
+        //Enemies receives Spaceship's bullets
         for (let i = 0; i < bullets.length; i++) {
             for (let j = 0; j < enemies.length; j++) {
                 if (
@@ -99,7 +98,7 @@ class Battle {
                 }
             }
         }
-
+        //Sith receives Spaceship's bullets
         for (let i = 0; i < bullets.length; i++) {
             if (
                 bullets.length !== 0 &&
@@ -118,7 +117,7 @@ class Battle {
                 displayScore(score);
             }
         }
-
+        //Spaceship receives Sith's bullets
         for (let i = 0; i < sithBullets.length; i++) {
             if (
                 sithBullets.length !== 0 &&
@@ -136,7 +135,7 @@ class Battle {
                 }, 200);
             }
         }
-
+        //Game over function
         if (spaceshipHealth < 1) {
             gameOver();
         }
@@ -149,7 +148,7 @@ class Battle {
             document.querySelector('.game-over-container').classList.remove('non-active');
         }
     }
-
+    //Bullet collision general function
     hits(a, b) {
         return !(a.left > b.right || a.right < b.left || a.top > b.bottom || a.bottom < b.top);
     }
