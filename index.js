@@ -1,6 +1,6 @@
 const battle = new Battle();
 let BATTLE_WIDTH = 750;
-let BATTLE_HEIGHT = 680;
+let BATTLE_HEIGHT = 800;
 //Audio setup
 function preload() {
     soundFormats('mp3', 'ogg');
