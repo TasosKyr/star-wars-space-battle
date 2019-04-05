@@ -63,20 +63,26 @@ function keyTyped() {
 }
 //Sith's firing bullets functions
 function fireBullet() {
-    sithBullt = new SithBullet(
-        battle.sith.x + battle.sith.img.width / 2,
-        battle.sith.y + battle.sith.img.height / 2
-    );
-    sithBullt.setup();
-    sithBullets.push(sithBullt);
+    if (battle.sith.health > 0) {
+        sithBullt = new SithBullet(
+            battle.sith.x + battle.sith.img.width / 2,
+            battle.sith.y + battle.sith.img.height / 2
+        );
+        sithBullt.setup();
+        sithBullets.push(sithBullt);
+    }
 }
+
 (function loop() {
     var rand = Math.round(Math.random() * (900 - 400)) + 1000;
     setTimeout(function() {
-        fireBullet();
-        loop();
+        if (battle.sith && battle.sith.health > 0) {
+            fireBullet();
+            loop();
+        }
     }, rand);
 })();
+
 //Score and quotes' setup function
 const quotes = [
     'Great shot kid, that was one in a million!',

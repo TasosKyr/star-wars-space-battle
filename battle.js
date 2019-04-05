@@ -9,7 +9,6 @@ let enemySize = {};
 let sithSize = {};
 let bulletSize = {};
 let sithBulletSize = {};
-let sithHealth = 2;
 let sithBullt;
 let sithBullets = [];
 let spaceshipHealth = 5;
@@ -49,13 +48,14 @@ class Battle {
         sithSize = {};
         bulletSize = {};
         sithBulletSize = {};
-        sithHealth = 10;
+        if (!this.sith) this.sith = new Sith();
+        this.sith.health = 3;
         sithBullt;
         sithBullets = [];
-        spaceshipHealth = 4;
+        spaceshipHealth = 40;
         spaceshipSize = {};
         score = 0;
-
+        loop();
         this.spaceship.setup(type);
         this.sith.setup();
         //Enemies setup and positioning to the screen after restart
@@ -73,8 +73,10 @@ class Battle {
         bullets.forEach(el => el.draw());
         sithBullets.forEach(el => el.draw());
         explosions.forEach(el => el.draw());
-        if (sithHealth > 0) {
+        if (this.sith && this.sith.health > 0) {
             this.sith.draw();
+        } else {
+            this.sith = undefined;
         }
         //Enemies receives Spaceship's bullets
         for (let i = 0; i < bullets.length; i++) {
@@ -103,16 +105,17 @@ class Battle {
             if (
                 bullets.length !== 0 &&
                 bullets[i] &&
+                this.sith &&
                 this.hits(bullets[i].bulletSize, this.sith.sithSize)
             ) {
                 bullets.splice(i, 1);
-                expl = new Explosion(battle.sith.x, battle.sith.y);
+                expl = new Explosion(this.sith.x, this.sith.y);
                 expl.setup();
                 explosions.push(expl);
                 setTimeout(function() {
                     explosions.splice(expl, 1);
                 }, 200);
-                sithHealth--;
+                this.sith.health--;
                 score += 200;
                 displayScore(score);
             }
@@ -126,7 +129,7 @@ class Battle {
             ) {
                 sithBullets.splice(i, 1);
                 spaceshipHealth--;
-                console.log(spaceshipHealth);
+
                 expl = new Explosion(battle.spaceship.x, battle.spaceship.y);
                 expl.setup();
                 explosions.push(expl);
@@ -137,9 +140,12 @@ class Battle {
         }
         //Game over function
         if (spaceshipHealth < 1) {
+            noLoop();
             gameOver();
         }
-        if (sithHealth < 1) {
+
+        if (enemies.length === 0 && (!this.sith || this.sith.health < 1)) {
+            noLoop();
             gameOver();
         }
         function gameOver() {
@@ -147,6 +153,20 @@ class Battle {
             document.querySelector('.game-container').classList.add('non-active');
             document.querySelector('.game-over-container').classList.remove('non-active');
         }
+        /* enemies.forEach(el => {
+            if (
+                el.y > BATTLE_HEIGHT - el.img.height / 1.5 ||
+                this.hits(el.enemySize, battle.spaceship.spaceshipSize)
+            ) {
+                gameOver();
+            }
+        }); */
+        /* if (
+            this.sith.y > BATTLE_HEIGHT - this.sith.img.height / 1.5 ||
+            this.hits(this.sith.sithSize, battle.spaceship.spaceshipSize)
+        ) {
+            gameOver();
+        } */
     }
     //Bullet collision general function
     hits(a, b) {
